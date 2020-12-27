@@ -23,16 +23,16 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [ ] List anything else that you can get done to improve the app functionality!
+- Adding typical tip rates per location.
+- Modifying tip receiver.
 
 ## Video Walkthrough
 
-Here's a walkthrough of implemented user stories:
-
-<img src='https://imgur.com/a/F9U6Xlb' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+Link: https://imgur.com/HwnUUma
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+A challenge encountered while building the app was properly communicating settings between view controllers. I decided to have a tip percentage changer in both the main screen and settings screen so the user can have a default percentage retrieved from UserDefaults on launch and also be able to change percentage on the main screen.
 
 ## License
 
