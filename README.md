@@ -24,7 +24,8 @@ The following **additional** features are implemented:
 
 - [ ] List anything else that you can get done to improve the app functionality!
 - Adding typical tip rates per location.
-- Modifying tip receiver.
+- Indicating who is receiving tips.
+- Saving tip history.
 
 ## Video Walkthrough
 
