@@ -1,26 +1,37 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  Prework
 //
-//  Created by Ahmed Abdalla on 12/19/20.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     
     @IBOutlet weak var tipControl: UISegmentedControl!
     
     @IBOutlet weak var billAmountTextField: UITextField!
-    @IBOutlet weak var tipPercentageLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var tipLabel: UILabel!
     
-    
+    let defaults = UserDefaults.standard
+        
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        billAmountTextField.becomeFirstResponder()
+        
+        // Select default segment
+        tipControl.selectedSegmentIndex = defaults.integer(forKey: "defaultTip")
     }
 
     @IBAction func onTap(_ sender: Any) {
+        // Show and hide keyboard when user taps outside of text field
+        if billAmountTextField.isFirstResponder {
+            billAmountTextField.resignFirstResponder()
+        } else {
+            billAmountTextField.becomeFirstResponder()
+        }
     }
     
     @IBAction func calculateTip(_ sender: Any) {
@@ -30,12 +41,16 @@ class ViewController: UIViewController {
         
         // Calculate tip and total
         let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
+        
+        print(tipControl.selectedSegmentIndex)
+        print(tipPercentages[tipControl.selectedSegmentIndex])
         let total = bill + tip
         
         // Update the tip and total labels
-        tipPercentageLabel.text = String(format: "$%.2f", tip)
+        tipLabel.text = String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", total)
     }
+    
     
 }
 
